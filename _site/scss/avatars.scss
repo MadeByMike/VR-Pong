@@ -1,0 +1,44 @@
+.una-left,
+.mike-left,
+.una-right,
+.mike-right {
+  position: relative;
+}
+
+.una-left::before,
+.mike-left::before,
+.una-right::after,
+.mike-right::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  background-repeat: no-repeat;
+  width: $avatar-size;
+  height: $avatar-size;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.una-left::before,
+.mike-left::before {
+  left: 0;
+  transform: translate(-150%, -50%);
+}
+
+.una-right::after,
+.mike-right::after {
+  right: 0;
+  transform: translate(150%, -50%);
+}
+
+.una-right::after,
+.una-left::before {
+  background-image: url('/site-assets/una.jpg');
+}
+
+.mike-right::after,
+.mike-left::before {
+  background-image: url('/site-assets/mike.jpg');
+}

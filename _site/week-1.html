@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR Pong - Week 1 - In the beginning</title>
+    <link rel="stylesheet" href="/site-assets/styles.css">
+	<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="vr-mask" viewBox="0 0 245.82 141.73">
+        <path d="M175.56,111.37c-22.52,0-40.77-18.84-40.77-42.07S153,27.24,175.56,27.24s40.77,18.84,40.77,42.07S198.08,111.37,175.56,111.37ZM26.84,69.31c0-23.23,18.25-42.07,40.77-42.07s40.77,18.84,40.77,42.07-18.26,42.07-40.77,42.07S26.84,92.54,26.84,69.31ZM27.27,0C11.54,0,0,12.34,0,28.58V110.9c0,16.24,11.54,30.83,27.27,30.83H99.57c2.17,0,4.19-1.83,5.4-3.7L116.47,118a8,8,0,0,1,12.52-.18l11.51,20.34c1.2,1.86,3.22,3.61,5.39,3.61h72.29c15.74,0,27.63-14.6,27.63-30.83V28.58C245.82,12.34,233.93,0,218.19,0H27.27Z"/>
+      </symbol>
+      <symbol id="vr-home" viewBox="20 20 56 56">
+        <path d="M48 18L15.2 42.9l4.6 6.1L48 27.5 76.2 49l4.6-6.1L48 18zm0 13.5L22.1 51.2V78h19.8V57h12v21H74V51.3L48 31.5z"/>
+      </symbol>
+    </svg>
+
+    <ul class="nav">
+      <li>
+        <a class="block-link" href="/">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-home" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="block-link" href="/pongs/week-1">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-mask" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pongline">
+
+      
+        <li>
+          <a class="block-link" href="/week-1" title="Week 1 - In the beginning"></a>
+        </li>
+      
+
+    </ul>
+
+    <section>
+      <header><h1>Week 1 - In the beginning</h1></header>
+      <!-- Hello friendly view-source munchkin! -->
+      <a class="block-link" href="/pongs/week-1"><img src="/site-assets/week-1.jpg" alt="Pong: Week 1 - In the beginning"></a>
+  		<p>Week one will probably be a slightly longer blog post that will cover the setup and some of the core concepts of WebVR and A-Frame along with my initial creative thinking and explorations. It’s likely that these two voices, the technical and creative will feature heavily in this and future blog posts. On the technical side I learnt about setting up a project with A-Frame and building scenes using components, entities, primitives and assets. On the creative side I explored using limited pallets and fine tuned the animations and reflections.</p>
+
+<h2 id="the-technical">The technical</h2>
+
+<p>In the beginning there was nothing, and then Mike said <code class="highlighter-rouge">git clone https://github.com/aframevr/aframe-boilerplate/</code>, then he then said, <code class="highlighter-rouge">npm install</code>. And he waited a moment, and he waited some more, then he decided to get a coffee, and when he came back he had created the universe!</p>
+
+<p>Getting started with <a href="https://aframe.io/">A-Frame</a> was really easy and it feels great to create a scene like this with just a few key strokes. I had no experience with WebVR before and I was able to get the pre-packaged scene up and running and start manipulating it in around 10 minutes. I’d strongly recommend starting with the boilerplate project. This will help you get your head around how everything works.</p>
+
+<p>One of the first things I noticed was that components in A-Frame are conceptually like html elements. This follows what seems to be a growing trend with many frameworks and libraries at the moment and it works well in this case. It’s a great mental model well suited to describing a VR scene, and one that is already familiar.</p>
+
+<p>You can design an entire scene in the browser using tags that represent physical entities. You can add custom properties to manipulate different aspects of these entities. You can even write your own.</p>
+
+<p>In the boilerplate project, you start with a scene like this:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a-scene&gt;</span>
+  <span class="nt">&lt;a-box</span> <span class="na">position=</span><span class="s">"-1 0.5 -3"</span> <span class="na">rotation=</span><span class="s">"0 45 0"</span> <span class="na">color=</span><span class="s">"#4CC3D9"</span><span class="nt">&gt;&lt;/a-box&gt;</span>
+  <span class="nt">&lt;a-sphere</span> <span class="na">position=</span><span class="s">"0 1.25 -5"</span> <span class="na">radius=</span><span class="s">"1.25"</span> <span class="na">color=</span><span class="s">"#EF2D5E"</span><span class="nt">&gt;&lt;/a-sphere&gt;</span>
+  <span class="nt">&lt;a-cylinder</span> <span class="na">position=</span><span class="s">"1 0.75 -3"</span> <span class="na">radius=</span><span class="s">"0.5"</span> <span class="na">height=</span><span class="s">"1.5"</span> <span class="na">color=</span><span class="s">"#FFC65D"</span><span class="nt">&gt;&lt;/a-cylinder&gt;</span>
+  <span class="nt">&lt;a-plane</span> <span class="na">position=</span><span class="s">"0 0 -4"</span> <span class="na">rotation=</span><span class="s">"-90 0 0"</span> <span class="na">width=</span><span class="s">"4"</span> <span class="na">height=</span><span class="s">"4"</span> <span class="na">color=</span><span class="s">"#7BC8A4"</span><span class="nt">&gt;&lt;/a-plane&gt;</span>
+  <span class="nt">&lt;a-sky</span> <span class="na">color=</span><span class="s">"#ECECEC"</span><span class="nt">&gt;&lt;/a-sky&gt;</span>
+<span class="nt">&lt;/a-scene&gt;</span>
+</code></pre>
+</div>
+
+<p>You probably have some idea what it’s doing just from reading the tag names and properties. You can <a href="http://codepen.io/mozvr/pen/BjygdO">play around with this demo scene on CodePen</a> and see how it works. I changed the sphere to purple by changing just one property and I felt a rush of power. I then looked through the <a href="https://aframe.io/docs/0.3.0/primitives/">API docs</a> to see how else I could bend these entities to my will.</p>
+
+<p>Built-in entities are made up of simple shapes like spheres, cylinders, boxes and other things called primitives. This terminology and other terms and concepts used in A-Frame will be familiar to anyone who has used 3D modelling software. If you are not familiar with any of these concepts, it might be worth reading about the <a href="https://aframe.io/docs/0.3.0/core/">Entity-Component-System pattern</a> that A-Frame uses. I knew just enough about this that this didn’t feel completely strange.</p>
+
+<p>Although you could make an extensive scene using only default primitives, the power quickly went to my head and in less than 30min I had popped the hood and started digging into how A-Frame works. A-Frame is built on top of <a href="https://threejs.org/">three.js</a> and each of the component encapsulates three.js and native JavaScript code to build entities that can be used declaratively in HTML.</p>
+
+<p>We can <a href="https://aframe.io/docs/0.3.0/core/component.html">register our own components</a> and build new primitives. There is an <a href="https://aframe.io/docs/">extensive API</a> to do this. It’s actually not that hard. Pretty soon I knew enough to shoot myself in the foot. I quickly leant that when building components you shouldn’t use three.js to try and manipulate the scene directly, you want to leave composition of the scene up to A-Frame and build components in a way that plays nice with other entities so that you can layer up different components to create more complex objects. If you don’t keep this in mind there is a chance things are not going to play nice together.</p>
+
+<p>Components, primitives and entities were the main concepts I had to get my head around in the first week. I’m sure I’ll be able to explain these better down the track as well as correct any mistakes I’ve made here but for now, I understand enough so let’s make something!</p>
+
+<h2 id="the-creative">The creative</h2>
+
+<p>I set myself the objective of applying an initial mood to the scene, through the addition of just the sky and ground. This seemed like a fairly humble objective. I started looking through different images of landscapes and I was drawn to the style of landscape in Japanese art and anime. Here are a few examples I collected for inspiration:</p>
+
+<p><img src="/site-assets/mood.jpg" alt="mood images" /></p>
+
+<p>These scenes all feel very tranquil yet still dynamic and interesting. I noticed that one thing they have in common is a limited color palette, perhaps this is a key tool for creating that feeling? I also noticed that light is a strong feature in each of these images and that I tended to choose examples with vivid orange and purple hues. So now I have some guidelines and idea I set out to create that feeling.</p>
+
+<p>I chose the following colors:</p>
+
+<p><span class="swatch swatch-1"></span>
+<span class="swatch swatch-2"></span>
+<span class="swatch swatch-3"></span>
+<span class="swatch swatch-4"></span></p>
+
+<p>To implement the sky I stole the sky gradient component from one of the example scenes on the A-Frame site. This is a simple WebGL shader that I was able to modify to suit my needs. I added some lights, a soft ambient light and a low directional light with stronger colours. The lights are default primitive objects in A-Frame.</p>
+
+<p>Next I added some test objects so I could see the result of the lighting effects. I kept these in to provide a focal point for an otherwise empty scene.</p>
+
+<p>Because I could not resist the need for some experimentation, I decided to implement animated water and not solid ground. I’ve made some cool water effects before using perlin noise and webGL and I was interested to see if I could port some of these to an A-Frame component.</p>
+
+<p>I had some success but as is often the case, I’m not the first person on the internet to have an idea and as is usually the case I’m not the smartest. About a quarter of the way into making my component I found an A-Frame port of this <a href="https://threejs.org/examples/?q=ocean#webgl_shaders_ocean">three.js water shader</a> along with a whole bunch of other <a href="https://github.com/aframevr/awesome-aframe">awesome A-Frame</a> examples. It wasn’t a simple drop in component, it had some bugs with not all properties correctly mapped and some strange clipping bugs but I was able to fix these well enough for my purposes, when I get chance to test this more I will contribute these changes back to the community.</p>
+
+<p>My first attempt was not perfect. I’d over did the contrast and the strength of the water effects. This is easy to do in isolation the strong special effects like this look cool but I’m building the foundation of a scene and there needs to be room to grow. I pared everything back and I am much happier with the result.</p>
+
+<p class="text-center"><img src="/site-assets/week-1-compare.jpg" /></p>
+
+<p>I went through various iterations of minor details like the reflective level of surfaces, the opacity of the water and the levels of distortion reflections. In each case when adding features my first inclination was to over apply the intended effect. It always looked right, until the novelty of the special effect wore off.</p>
+
+<p class="text-center"><img src="/site-assets/week-1-distortion.jpg" /></p>
+
+<p>In the end I went too far the other way and it was not until I tested it on a head set that I found on small screens (the poor quality one I had anyway) the sublty of effects can also lost. There is it seems a narrow sweetspot.</p>
+
+<p>Getting this balance right was not easy, for me it was equally as hard to modify the shader code. I spent a lot of time tweaking values to get everything just right. I have to admit now that I am kind of nervous to hand this over to Una. She’s amazing and will do amazing things but I have become slightly emotionally invested in this scene now and I’m brimming with ideas for where it should go next. I’m scared and excited to let it go. I also want to hear where you think it should go, feel free share some ideas with <a href="https://twitter.com/Una">Una</a> or <a href="https://twitter.com/MikeRiethmuller">myself</a> on twitter. We’d love to hear from you!</p>
+
+<p>Finally, I’ve learnt heaps and have a scene with the desired mood, colors and features that I set out in my initial objective. That’s pretty good. It even looks something like what I had in mind! I admit I did take a few detours from my main objective, experimenting with ideas for my next turn.</p>
+
+<p class="text-center"><img src="/site-assets/week-1-fire.jpg" /></p>
+
+<p>I justified these by saying it was helping me learn how A-Frame works. That might be true but I had to put these experiments aside for future weeks and focus on my original goal. Maybe I will get to implement some of these or maybe Una will take it somewhere else.</p>
+
+<p class="mike-left">@Una Tag, you're it!</p>
+
+    </section>
+	</body>
+</html>

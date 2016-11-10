@@ -1,0 +1,17 @@
+# Dependencies
+markdown: kramdown
+highlighter: rouge
+
+# Permalinks
+permalink:  /:title
+
+# Setup
+title: VR Pong
+url:
+description: "It's VR Pong!"
+baseurl: /
+exclude: [node_modules, package.json, npm-debug.log]
+author:
+  name: Mike Riethmuller
+  url: https://madebymike.com.au/
+  email: mike@madebymike.com.au

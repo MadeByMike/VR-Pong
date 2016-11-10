@@ -1,0 +1,17 @@
+{
+  "name": "VR-Pong",
+  "description": "It's VR Pong",
+  "version": "0.3.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "jekyll serve",
+    "deploy": "ghpages",
+    "ghpages": "ghpages"
+  },
+  "devDependencies": {
+    "ghpages": "0.0.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

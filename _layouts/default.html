@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR Pong - {{page.title}}</title>
+    <link rel="stylesheet" href="/site-assets/styles.css">
+	<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="vr-mask" viewBox="0 0 245.82 141.73">
+        <path d="M175.56,111.37c-22.52,0-40.77-18.84-40.77-42.07S153,27.24,175.56,27.24s40.77,18.84,40.77,42.07S198.08,111.37,175.56,111.37ZM26.84,69.31c0-23.23,18.25-42.07,40.77-42.07s40.77,18.84,40.77,42.07-18.26,42.07-40.77,42.07S26.84,92.54,26.84,69.31ZM27.27,0C11.54,0,0,12.34,0,28.58V110.9c0,16.24,11.54,30.83,27.27,30.83H99.57c2.17,0,4.19-1.83,5.4-3.7L116.47,118a8,8,0,0,1,12.52-.18l11.51,20.34c1.2,1.86,3.22,3.61,5.39,3.61h72.29c15.74,0,27.63-14.6,27.63-30.83V28.58C245.82,12.34,233.93,0,218.19,0H27.27Z"/>
+      </symbol>
+      <symbol id="vr-home" viewBox="20 20 56 56">
+        <path d="M48 18L15.2 42.9l4.6 6.1L48 27.5 76.2 49l4.6-6.1L48 18zm0 13.5L22.1 51.2V78h19.8V57h12v21H74V51.3L48 31.5z"/>
+      </symbol>
+    </svg>
+
+    <ul class="nav">
+      <li>
+        <a class="block-link" href="/">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-home" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="block-link" href="{{page.pong}}">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-mask" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pongline">
+
+      {% for post in site.posts %}
+        <li>
+          <a class="block-link" href="{{post.url}}" title="{{post.title}}"></a>
+        </li>
+      {% endfor %}
+
+    </ul>
+
+    <section>
+      <header><h1>{{page.title}}</h1></header>
+      <!-- Hello friendly view-source munchkin! -->
+      <a class="block-link" href="{{page.pong}}"><img src="{{page.image}}" alt="Pong: {{page.title}}"></a>
+  		{{ content }}
+    </section>
+	</body>
+</html>
