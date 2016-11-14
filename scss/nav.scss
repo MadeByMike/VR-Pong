@@ -40,8 +40,11 @@ $pongline-width: 6px;
   position: relative;
   width: $pongline-width;
   margin: 0 auto;
-  padding-top: 120px;
-  background: #888;
+  
+  + li {
+    padding-top: 60px;
+    background: #888;
+  }
 }
 
 .pongline li a {
@@ -53,7 +56,7 @@ $pongline-width: 6px;
   width: $pongline-width*4;
   height: $pongline-width*4;
   border-radius: 50%;
-  background: inherit;
+  background: #888;
 }
 
 .pongline li a:hover {

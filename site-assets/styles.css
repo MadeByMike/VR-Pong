@@ -514,7 +514,7 @@ a {
 }
 
 a:visited {
-  color: #551a8b;
+  color: #ab3c7e;
 }
 
 a:focus,
@@ -744,7 +744,10 @@ section {
   position: relative;
   width: 6px;
   margin: 0 auto;
-  padding-top: 120px;
+}
+
+.pongline li + li {
+  padding-top: 60px;
   background: #888;
 }
 
@@ -759,7 +762,7 @@ section {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: inherit;
+  background: #888;
 }
 
 .pongline li a:hover {
