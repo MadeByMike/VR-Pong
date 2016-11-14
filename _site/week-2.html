@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR Pong - Week 2 - New and Shiny</title>
+    <link rel="stylesheet" href="./site-assets/styles.css">
+	<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="vr-mask" viewBox="0 0 245.82 141.73">
+        <path d="M175.56,111.37c-22.52,0-40.77-18.84-40.77-42.07S153,27.24,175.56,27.24s40.77,18.84,40.77,42.07S198.08,111.37,175.56,111.37ZM26.84,69.31c0-23.23,18.25-42.07,40.77-42.07s40.77,18.84,40.77,42.07-18.26,42.07-40.77,42.07S26.84,92.54,26.84,69.31ZM27.27,0C11.54,0,0,12.34,0,28.58V110.9c0,16.24,11.54,30.83,27.27,30.83H99.57c2.17,0,4.19-1.83,5.4-3.7L116.47,118a8,8,0,0,1,12.52-.18l11.51,20.34c1.2,1.86,3.22,3.61,5.39,3.61h72.29c15.74,0,27.63-14.6,27.63-30.83V28.58C245.82,12.34,233.93,0,218.19,0H27.27Z"/>
+      </symbol>
+      <symbol id="vr-home" viewBox="20 20 56 56">
+        <path d="M48 18L15.2 42.9l4.6 6.1L48 27.5 76.2 49l4.6-6.1L48 18zm0 13.5L22.1 51.2V78h19.8V57h12v21H74V51.3L48 31.5z"/>
+      </symbol>
+    </svg>
+
+    <ul class="nav">
+      <li>
+        <a class="block-link" href="./">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-home" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="block-link" href="./pongs/week-2">
+          <svg class="nav-icon">
+            <use xlink:href="#vr-mask" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pongline">
+
+      
+        <li>
+          <a class="block-link" href="/week-2" title="Week 2 - New and Shiny"></a>
+        </li>
+      
+        <li>
+          <a class="block-link" href="/week-1" title="Week 1 - In the beginning"></a>
+        </li>
+      
+
+    </ul>
+
+    <section>
+      <header><h1>Week 2 - New and Shiny</h1></header>
+      <!-- Hello friendly view-source munchkin! -->
+      <a class="block-link" href="./pongs/week-2"><img src="./site-assets/week-2.jpg" alt="Pong: Week 2 - New and Shiny"></a>
+  		<p>Una here—also brand new to VR and just diving into <a href="http://aframe.io">A-Frame</a>. The reason we decided to start this project was just for an excuse to play with WebVR after all :) And I really love what Mike did with the place, but it’s time to start putting some objects into our 3D world.</p>
+
+<p>To do so, I saw that A-frame accepts COLLADA models, and wondered what that was—so some digging was done. <a href="https://aframe.io/docs/0.3.0/primitives/a-collada-model.html">COLLADA</a> is an open source 3D image format denoted with <code class="highlighter-rouge">.dae</code>. You can even open and move these types of files around on a Mac.</p>
+
+<p>So I guess it’s time to learn a little bit of 3D modeling.</p>
+
+<h2 id="blender">Blender</h2>
+
+<p>The best free software out there right now is called <a href="https://www.blender.org/">Blender</a>. This program is extremely powerful, and some blogs noted that you’ll probably only need about 20% of its features to do 80% of your work (The classic 20/80 rule). I’ve never used Blender before (or any other 3d rendering software to be perfectly honest), but I thought I’d give it a spin.</p>
+
+<p>I watched <em>SO MANY</em> Youtube <a href="https://www.youtube.com/watch?v=iO5QHmBv4BU">videos</a> by incredible 3D artists and started to play around. The biggest hangup I found initially was actually <a href="https://www.youtube.com/watch?v=c1sLKVPw_pw">selecting things</a> at first, and then I got so far as to beginning to understand the basics of modeling in create mode.</p>
+
+<p><img src="./site-assets/week-2-blast-gun-thing.jpg" alt="Gun-blaster-thing in Blender" /></p>
+
+<h2 id="all-of-the-shortcuts">All of the Shortcuts</h2>
+
+<p>Blender (in my opinion) has a relatively high learning curve because a lot of the program relies on key bindings and shortcuts as a part of workflow.</p>
+
+<p>I found a good <a href="http://www.dummies.com/web-design-development/blender/blender-for-dummies-cheat-sheet/">cheat sheet</a> online, and found these to be the most useful as I was begining to dive in:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Tab</code> : Toggle Edit mode</li>
+  <li><code class="highlighter-rouge">X</code> : Delete</li>
+  <li><code class="highlighter-rouge">S</code>: Scale / <code class="highlighter-rouge">E</code>: Extrude</li>
+  <li><code class="highlighter-rouge">G</code>: Grab/Move</li>
+  <li><code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">A</code> : Add Menu</li>
+  <li><code class="highlighter-rouge">K</code>: Knife Tool</li>
+</ul>
+
+<p>There were so many things! Understanding edit mode alone is where my head was wrapped up this weekend. I also started looking into materials and lighting but quickly that seemed to be getting too complex for a little ping (also I was getting quickly confused by the Blender GUI), so I decided to stop keeping this from @Mike and send forward an abstract ray-gun / secret-lab / tower thing I made while experimenting. I like it :)</p>
+
+<h2 id="lighting-and-positioning">Lighting and Positioning</h2>
+
+<p>Instead of lighting through Blender, A-frame has its own lighting model, and I started playing around with it. You can set the <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">color</code>, and <code class="highlighter-rouge">intensity</code> as well as individual properties based on the <code class="highlighter-rouge">type</code> you set. (Types include ambient, directional, hemisphere, point, and spot). You can apply these on entities or on objects. I went with a bright, intense crimson light on my collada model, which gave this mysterious feel that still matched the colors of the scene.</p>
+
+<p>The coolest part of adding light was that since this is a 3D world now, that light reflected onto the other objects instantly. They now had a splash of color:</p>
+
+<p><img src="./site-assets/week-2-lighting.jpg" alt="Gun-blaster-thing in Blender" /></p>
+
+<p>So while my contribution this week was just this line of code:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a-collada-model</span> 
+  <span class="na">src=</span><span class="s">"#alien-object"</span> 
+  <span class="na">light=</span><span class="s">"type: point; intensity: 2.6; color: crimson;"</span>   
+  <span class="na">position=</span><span class="s">"-4 0 -14"</span> 
+  <span class="na">depth=</span><span class="s">"12"</span> <span class="na">width=</span><span class="s">"6"</span> 
+  <span class="na">height=</span><span class="s">"7"</span> 
+  <span class="na">rotation=</span><span class="s">"0 100 20"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/a-collada-model&gt;</span>
+</code></pre>
+</div>
+
+<p>—there was a lot of Blender experimentation that got us there.</p>
+
+<p>Ping, your turn @Mike!</p>
+
+    </section>
+	</body>
+</html>

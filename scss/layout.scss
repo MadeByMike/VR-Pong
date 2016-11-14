@@ -1,0 +1,23 @@
+header {
+  text-align: center;
+  margin: 8vmin auto 7vmin;
+}
+.home header {
+  margin: 16vmin auto 14vmin;
+}
+
+section,
+article{
+  max-width: $max-screen/2;
+  margin: 4em auto;
+}
+
+article {
+  width: calc(90vw - (1.5 * #{ $avatar-size}) );
+  padding-left: calc(1.5 * #{ $avatar-size});
+}
+
+section {
+  width: calc(90vw - (1.5 * #{ $nav-size }) );
+  padding-left: calc(1.5 * #{ $nav-size });
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR Pong - {{ page.title }}</title>
+    <link rel="stylesheet" href="/site-assets/styles.css">
+    <script type="text/javascript" src="./scripts/aframe.min.js"></script>
+		{% if page.scripts %}
+		{% for item in page.scripts %}
+	  <script src="{{ item }}"></script>
+		{% endfor %}
+		{% endif %}
+	</head>
+	<body>
+    <!-- Hello friendly view-source munchkin! -->
+		{{ content }}
+	</body>
+</html>

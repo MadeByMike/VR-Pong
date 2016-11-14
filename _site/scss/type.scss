@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Serif|Rubik:900");
+:root {
+  @include fluid-type(font-size, $min-screen, $max-screen, $min-font, $max-font);
+}
+
+body {
+  line-height: 1.6;
+  font-family: 'PT Serif', serif;
+  color: #333;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin-top: 2em;
+  margin-bottom: .3em;
+}
+
+.home header {
+  @include fluid-type(font-size, $min-screen, $max-screen, 2.5rem, 7.5rem);
+  h1 {
+    margin: 0;
+    font-size: 1em;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  a, a:visited {
+    color: #333;
+  }
+}
+
+a {
+  color: #ee4938;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ab3c7e;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
+
+.text-center { text-align: center; }
+
+code{
+  color: #cc3100;
+  background: #FFF;
+  border: solid 1px #EAEAEA;
+}
+
+pre code{
+  color: #000;
+  background: transparent;
+  border: none;
+}
+
+
+@keyframes wobble-top {
+	16.65% {
+		transform: skew(-6deg);
+	}
+
+	33.3% {
+		transform: skew(5deg);
+	}
+
+	49.95% {
+		transform: skew(-3deg);
+	}
+
+	66.6% {
+		transform: skew(2deg);
+	}
+
+	83.25% {
+		transform: skew(-1deg);
+	}
+
+	100% {
+		transform: skew(0);
+	}
+}
+
+//Having some fun with link hover effects
+a:not(.block-link) {
+	display: inline-block;
+	position: relative;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+	&:before {
+		content: '';
+		position: absolute;
+    z-index: -10;
+		background: #dfcbe3;
+		top: 100%;
+		right: -.2em;
+		bottom: 0;
+		left: -.2em;
+		transition-duration: .25s;
+		transition-property: top;
+	}
+
+	&:hover:before {
+    top: .2em;
+    animation-name: wobble-top;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: 1;
+	}
+}

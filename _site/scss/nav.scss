@@ -1,0 +1,81 @@
+.nav{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.nav-icon {
+  display: block;
+  box-sizing: border-box;
+  fill: #DDD;
+  background-color: rgba(0,0,0,0.5);
+  border: 0;
+  bottom: 0;
+  width: $nav-size;
+  height: 50px;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+  transition: background-color .05s ease;
+  z-index: 9999;
+}
+.nav-icon:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+$pongline-width: 6px;
+
+.pongline {
+  position: absolute;
+  top: (20px + 50px + 50px + 20px + 40px);
+  left: calc(20px + #{$nav-size/2} - #{$pongline-width/2});
+  margin: 0;
+  padding: 0;
+}
+
+.pongline li {
+  list-style-type: none;
+  position: relative;
+  width: $pongline-width;
+  margin: 0 auto;
+  
+  + li {
+    padding-top: 60px;
+    background: #888;
+  }
+}
+
+.pongline li a {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: $pongline-width*4;
+  height: $pongline-width*4;
+  border-radius: 50%;
+  background: #888;
+}
+
+.pongline li a:hover {
+  background: #ee4938;
+  border: solid 3px #ee4938;
+}
+
+.pongline::after {
+  content: '';
+  position: absolute;
+  width: $pongline-width;
+  margin: 0 auto;
+  padding-top: 60px;
+  background: linear-gradient(
+    to bottom,
+    #eaeaea,
+    #eaeaea 50%,
+    #888 50%,
+    #888
+  );
+  background-size: 100% 15px;
+}
